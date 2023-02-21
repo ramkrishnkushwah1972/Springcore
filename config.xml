@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 	https://www.springframework.org/schema/beans/spring-beans.xsd
+ 	http://www.springframework.org/schema/context
+ 	http://www.springframework.org/schema/context/spring-context.xsd">
+  
+/////////////////////////////////////////////////////////////////
+///////////////Reference Type Ioc //////////////////////////////
+	<bean class="com.springcore.ref.B" name="bref">
+		<property name="y" value="11"/>
+	
+	</bean>
+	
+	<bean class="com.springcore.ref.A" name="aref">
+		<property name="x" value="13"/>
+		<property name="ob">
+			<ref bean="bref" />
+		</property>
+	</bean>
+</beans>
+
+//////////////////////////////////////////////////////////////////
+///////////////Collection Type Ioc //////////////////////////////
+ 	
+	<bean class="com.springcore.collections.Emp" name="emp1">
+		<property name="name" value="Akash"/>
+		<property name="phones">
+		<list>
+			<value>3234982399 </value>
+			<value>3234982343 </value>
+			<value>3234982343 </value>
+			<value>3234981121 </value>
+			<null/>
+		</list>
+		</property>
+		<property name="addresses">
+		<set>
+			<value>Ktg</value>
+			<value>Nsg</value>
+			<value>Kannod</value>
+			<value>Nemavar</value>
+		</set>	
+		</property>
+		<property name="courses">
+		<map>
+			<entry key="Java" value="2 months" />
+			<entry key="C" value="1 months" />
+			<entry key="Python" value="3 months" />
+			<entry key="C#" value="4 months" />
+		</map>
+		</property>
+	</bean>
+</beans>
+
+///////////////////////////////////////////////////////////////////////
+///////////////////////Primitive data Type////////////////////////////
+
+	<bean class="com.springcore.Student" name="student1">
+			<property name="id" value="12"/>
+		<!-- <property name="id">
+			<value>1213</value>
+		</property> -->
+		
+		<property name="name">
+			<value>Ram</value>
+		</property>
+				<property name="address">
+			<value>Khategaon</value>
+		</property>
+	</bean> 
+	<bean class="com.springcore.Student" name="student2">
+		<property name="id" value="13"/>
+		<property name="name" value="Anish"/>					
+		<property name="address" value="Kannod"/>
+	</bean>
+	
+</beans>
